@@ -6,16 +6,19 @@
         {
             Console.WriteLine("Hello, World!" + Environment.NewLine);
 
-            int a = 1;
-            int b = 6;
-            int sum = Add(a, b);
+            int sum = Add(2, 6);
 
-            double c = 3.85;
-            double d = 2.1;
-            double decimalSum = Add(c, d);
+            double decimalSum = Add(3.85, 2.1);
 
             string dollarsSum = Add(3, 4, true);
 
+            Console.WriteLine
+                ($"Sum: {sum}" 
+                    + Environment.NewLine + Environment.NewLine
+                + $"Decimal Sum: {decimalSum}"
+                    + Environment.NewLine + Environment.NewLine);
+
+            Console.WriteLine(dollarsSum);
             
         }
 
@@ -28,10 +31,28 @@
         {
             return c + d;
         }
-        public static string Add(int e, int f, bool isCheck)
+        public static string Add(int e, int f, bool isDollars)
         {
             int sum = e + f;
-            return (isCheck == true) ? $"{sum} + dollars" : $"{sum}";
+
+            //return (isDollars == true) ? sum + " dollars" : $"{sum}";
+
+            if (isDollars == true)
+            {
+                if (sum == 1)
+                {
+                    return sum + " dollar";
+                }
+                else
+                {
+                    return sum + " dollars";
+                }
+            }
+            else
+            {
+                return $"{sum}";
+            }
+
         }
 
 
